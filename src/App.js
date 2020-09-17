@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <ImageLoader
+        num={50}
         offset={offset}
       />
     </div>
