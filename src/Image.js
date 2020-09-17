@@ -7,6 +7,7 @@ function Image(props) {
       <img
         src={url}
         alt={text}
+        loading="lazy"
       />
     </div>
   );
