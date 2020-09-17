@@ -1,9 +1,13 @@
 import React from 'react';
 
-function Image() {
+function Image(props) {
+  const { url, text } = props;
   return (
     <div className="Image">
-      <img src="https://media.giphy.com/media/12HZukMBlutpoQ/giphy.gif" alt="It is a cat" />
+      <img
+        src={url}
+        alt={text}
+      />
     </div>
   );
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Image from './Image'
+import ImageLoader from './ImageLoader'
 
 function App() {
   return (
     <div className="App">
-      <Image />
+      <ImageLoader />
     </div>
   );
 }
