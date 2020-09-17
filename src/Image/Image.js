@@ -1,10 +1,12 @@
 import React from 'react';
+import './Image.css';
 
-function Image({ url, text, method, defaultHeight }) {
+function Image({ image: { url, height, width }, text, method, defaultHeight }) {
   const imageProps = {
     src: url,
     alt: text,
-    height: defaultHeight || 400
+    height: height || defaultHeight || 400,
+    width
   };
   if (method === 'native') {
     imageProps.loading = 'lazy';

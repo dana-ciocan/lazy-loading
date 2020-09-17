@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Image from './Image';
+import Image from './Image/Image';
 
 function ImageLoader({ query, num, offset, method, defaultHeight }) {
   const [imagesToDisplay, setImagesToDisplay] = useState([]);
@@ -8,21 +8,30 @@ function ImageLoader({ query, num, offset, method, defaultHeight }) {
       const url = `http://api.giphy.com/v1/gifs/search?api_key=zvj5cMK94bGXSPqbLIQo2GiTJXSpUEI5&q=${query}&limit=${num}&rating=g&offset=${offset}`;
       await fetch(url)
         .then(response => response.json())
-        .then(response => setImagesToDisplay(response.data.map(imageData => imageData.images.original.url)))
-      };
+        .then(response => {
+          console.log(response);
+          const imageData = response.data.map(imageData => {
+            const { url, height, width } = imageData.images.original;
+            return { url, height, width };
+          });
+          setImagesToDisplay(imageData);
+        });
+      }
       fetchData();
   }, [query, num]);
   return (
     <div className="Image">
       {
         imagesToDisplay.map((image, index) => {
-          return <div><Image
-            method={method}
-            key={image}
-            url={image}
-            text={`It is a ${query}`}
-            defaultHeight={defaultHeight}
-          /></div>;
+          return <div>
+            <Image
+              method={method}
+              key={index}
+              image={image}
+              text={`It is a ${query}`}
+              defaultHeight={defaultHeight}
+            />
+          </div>;
         })
       }
     </div>
