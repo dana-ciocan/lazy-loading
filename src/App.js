@@ -5,7 +5,10 @@ import ImageLoader from './ImageLoader'
 function App() {
   return (
     <div className="App">
-      <ImageLoader />
+      <ImageLoader
+        query="finn"
+        num={30}
+      />
     </div>
   );
 }
