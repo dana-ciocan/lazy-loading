@@ -8,6 +8,7 @@ function Image(props) {
         src={url}
         alt={text}
         loading="lazy"
+        height="400"
       />
     </div>
   );
