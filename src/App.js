@@ -22,6 +22,7 @@ function App() {
     <div className="App">
       <h1>Topic: {randomTopic}</h1>
       <ImageLoader
+        method="native"
         query={randomTopic}
         num={50}
         offset={offset}

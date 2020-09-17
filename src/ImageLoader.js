@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from './Image';
 
-function ImageLoader({ query, num, offset }) {
+function ImageLoader({ query, num, offset, method }) {
   const [imagesToDisplay, setImagesToDisplay] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -17,6 +17,7 @@ function ImageLoader({ query, num, offset }) {
       {
         imagesToDisplay.map((image, index) => {
           return <div><Image
+            method={method}
             key={image}
             url={image}
             text={`It is a ${query}`}
