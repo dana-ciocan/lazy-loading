@@ -3,11 +3,11 @@ import './App.css';
 import ImageLoader from './ImageLoader'
 
 function App() {
+  const offset = Math.floor(Math.random() * 100);
   return (
     <div className="App">
       <ImageLoader
-        query="finn"
-        num={30}
+        offset={offset}
       />
     </div>
   );
