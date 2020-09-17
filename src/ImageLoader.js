@@ -18,7 +18,7 @@ function ImageLoader({ query, num, offset, method, defaultHeight }) {
         });
       }
       fetchData();
-  }, [query, num]);
+  }, [query, num, offset]);
   return (
     <div className="Image">
       {
