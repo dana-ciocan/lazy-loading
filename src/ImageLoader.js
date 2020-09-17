@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from './Image';
 
-function ImageLoader({ query, num, offset, method }) {
+function ImageLoader({ query, num, offset, method, defaultHeight }) {
   const [imagesToDisplay, setImagesToDisplay] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +21,7 @@ function ImageLoader({ query, num, offset, method }) {
             key={image}
             url={image}
             text={`It is a ${query}`}
+            defaultHeight={defaultHeight}
           /></div>;
         })
       }

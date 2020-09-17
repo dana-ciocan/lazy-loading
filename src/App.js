@@ -26,6 +26,7 @@ function App() {
         query={randomTopic}
         num={50}
         offset={offset}
+        defaultHeight={400}
       />
     </div>
   );
