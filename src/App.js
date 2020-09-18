@@ -23,7 +23,7 @@ function App() {
           method="native"
           query={topic}
           num={50}
-          offset={10}
+          offset={Math.floor(Math.random() * 100)}
           defaultHeight={400}
           /> 
         : null
