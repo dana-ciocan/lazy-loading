@@ -9,8 +9,12 @@ function Image({ image: { url, height, width }, text, method, defaultHeight }) {
   };
   switch (method) {
     case 'native':
-    imageProps.loading = 'lazy';
-    imageProps.src = url;
+      imageProps.loading = 'lazy';
+      imageProps.src = url;
+      break;
+    case 'javascript':
+      imageProps['data-src'] = url;
+      imageProps.className = 'lazy';
       break;
     default:
       imageProps.src = url;
