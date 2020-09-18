@@ -22,10 +22,10 @@ function ImageLoader({ query, num, offset, method, defaultHeight }) {
     <div className="Image">
       {
         imagesToDisplay.map((image, index) => {
-          return <div>
+          return <div
+          key={index}>
             <Image
               method={method}
-              key={index}
               image={image}
               text={`It is a ${query}`}
               defaultHeight={defaultHeight}
