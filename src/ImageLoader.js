@@ -9,7 +9,6 @@ function ImageLoader({ query, num, offset, method, defaultHeight }) {
       await fetch(url)
         .then(response => response.json())
         .then(response => {
-          console.log(response);
           const imageData = response.data.map(imageData => {
             const { url, height, width } = imageData.images.original;
             return { url, height, width };
