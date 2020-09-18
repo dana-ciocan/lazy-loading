@@ -19,11 +19,10 @@ function ImageLoader({ query, num, offset, method, defaultHeight }) {
       fetchData();
   }, [query, num, offset]);
   return (
-    <div className="Image">
+    <div className="image-loader">
       {
         imagesToDisplay.map((image, index) => {
-          return <div
-          key={index}>
+          return <div key={index}>
             <Image
               method={method}
               image={image}
