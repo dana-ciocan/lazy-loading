@@ -1,0 +1,8 @@
+.image-loader {
+    width: 100%;
+}
+
+.image-loader__container {
+    margin: 0 auto;
+    background-color: grey;
+}
