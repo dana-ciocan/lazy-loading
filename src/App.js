@@ -1,33 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import ImageLoader from './ImageLoader'
+import ImageLoader from './ImageLoader';
 
 function App() {
-  const offset = Math.floor(Math.random() * 100);
-  const topics = [
-    'adventure time',
-    'steven universe',
-    'mario',
-    'nintendo',
-    'animal crossing',
-    'waiting',
-    'time',
-    'cat',
-    'dog',
-    'coffee',
-    'hungry'
-  ];
-  const randomTopic = topics[Math.floor(Math.random() * topics.length)];
+  const [topic, setTopic] = useState('');
+  const [showImages, setShowImages] = useState(false);
   return (
     <div className="App">
-      <h1>Topic: {randomTopic}</h1>
-      <ImageLoader
-        method="native"
-        query={randomTopic}
-        num={50}
-        offset={offset}
-        defaultHeight={400}
-      />
+      <div className="topic-form">
+        <label htmlFor="topic">Topic</label>
+        <input
+          type="text"
+          id="topic"
+          value={topic}
+          onChange={e => { setTopic(e.target.value); setShowImages(false); }}
+        />
+        <button onClick={() => setShowImages(true)}>OK</button>
+      </div>
+      {
+        showImages ? 
+          <ImageLoader
+          method="native"
+          query={topic}
+          num={50}
+          offset={10}
+          defaultHeight={400}
+          /> 
+        : null
+      }
     </div>
   );
 }

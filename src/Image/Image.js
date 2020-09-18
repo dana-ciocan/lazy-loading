@@ -13,7 +13,7 @@ function Image({ image: { url, height, width }, text, method, defaultHeight }) {
   }
   return (
     <div className="Image">
-      <img {...imageProps} />
+      <img alt="" {...imageProps} />
     </div>
   );
 }
