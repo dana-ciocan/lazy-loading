@@ -1,5 +1,4 @@
 import React from 'react';
-import './Image.css';
 
 function Image({ image: { url, height, width }, text, method, defaultHeight }) {
   const imageProps = {
@@ -21,9 +20,7 @@ function Image({ image: { url, height, width }, text, method, defaultHeight }) {
       break;
   }
   return (
-    <div className="Image">
       <img alt="" {...imageProps} />
-    </div>
   );
 }
 
