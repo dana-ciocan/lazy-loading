@@ -4,7 +4,7 @@ import ImageLoader from './ImageLoader';
 
 function App() {
   const [topic, setTopic] = useState('');
-  const [method, setMethod] = useState('native');
+  const [method, setMethod] = useState('none');
   const [showImages, setShowImages] = useState(false);
   return (
     <div className="App">
@@ -20,8 +20,8 @@ function App() {
         </div>
         <div className="form-row">
         <label htmlFor="topic">Method</label>
-        <select onChange={e => setMethod(e.target.value)}>
-          <option value="native">Select one</option> 
+        <select onChange={e => { setMethod(e.target.value); setShowImages(false); }}>
+          <option value="none">No lazy loading</option> 
           <option value="native">Native lazy-loading</option> 
         </select>
         <button onClick={() => setShowImages(true)}>OK</button>

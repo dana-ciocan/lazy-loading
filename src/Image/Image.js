@@ -7,9 +7,14 @@ function Image({ image: { url, height, width }, text, method, defaultHeight }) {
     height: height || defaultHeight || 400,
     width
   };
-  if (method === 'native') {
+  switch (method) {
+    case 'native':
     imageProps.loading = 'lazy';
     imageProps.src = url;
+      break;
+    default:
+      imageProps.src = url;
+      break;
   }
   return (
     <div className="Image">
