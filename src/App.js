@@ -30,7 +30,7 @@ function App() {
       {
         showImages ? 
           <ImageLoader
-          method
+          method={method}
           query={topic}
           num={50}
           offset={Math.floor(Math.random() * 100)}
