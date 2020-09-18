@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Image from './Image/Image';
+import './ImageLoader.css';
 
 function ImageLoader({ query, num, offset, method, defaultHeight }) {
   const [imagesToDisplay, setImagesToDisplay] = useState([]);
@@ -22,9 +23,15 @@ function ImageLoader({ query, num, offset, method, defaultHeight }) {
     <div className="image-loader">
       {
         imagesToDisplay.map((image, index) => {
-          return <div key={index}>
+          return <div
+            className="image-loader__container"
+            key={index}
+            style={{
+              height: `${image.height}px`,
+              width: `${image.width}px`
+            }}>
             <Image
-              method={method}
+              method={index < 3 ? 'none' : method}
               image={image}
               text={`It is a ${query}`}
               defaultHeight={defaultHeight}
