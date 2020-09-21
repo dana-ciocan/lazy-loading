@@ -22,17 +22,17 @@ function ImageLoader({ query, num, offset, method, defaultHeight }) {
   }, [query, num, offset]);
   useEffect(() => {
     if (imagesLoaded === num && method === 'events') {
-      var lazyloadImages = document.querySelectorAll("img.lazy");    
-      var lazyloadThrottleTimeout;
+      const lazyloadImages = document.querySelectorAll("img.lazy");    
+      let lazyloadThrottleTimeout;
       
-      function lazyload () {
+      const lazyload = () => {
         if(lazyloadThrottleTimeout) {
           clearTimeout(lazyloadThrottleTimeout);
         }    
         
         lazyloadThrottleTimeout = setTimeout(function() {
-            var scrollTop = window.pageYOffset;
-            lazyloadImages.forEach(function(img) {
+            const scrollTop = window.pageYOffset;
+            lazyloadImages.forEach((img) => {
               if(img.offsetTop < (window.innerHeight + scrollTop)) {
                   img.src = img.dataset.src;
                   img.classList.remove('lazy');
