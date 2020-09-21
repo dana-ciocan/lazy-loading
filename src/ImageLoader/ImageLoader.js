@@ -35,7 +35,6 @@ function ImageLoader({ query, num, offset, method, defaultHeight }) {
               method={method}
               image={image}
               text={`It is a ${query}`}
-              defaultHeight={defaultHeight}
             />
           </div>;
         })

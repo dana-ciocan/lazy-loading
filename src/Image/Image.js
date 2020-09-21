@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './Image.css';
 
-function Image({ image: { url, height, width }, text, method, defaultHeight }) {
+function Image({ image: { url, height, width }, text, method }) {
   const curImage = useRef(null);
   const calcProps = () => {
     curImage.current.alt = text;
