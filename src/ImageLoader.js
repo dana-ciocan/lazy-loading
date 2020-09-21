@@ -14,6 +14,7 @@ function ImageLoader({ query, num, offset, method, defaultHeight }) {
             const { url, height, width } = imageData.images.original;
             return { url, height, width };
           });
+          console.log('imageData: ', imageData);
           setImagesToDisplay(imageData);
         });
       }
@@ -31,7 +32,7 @@ function ImageLoader({ query, num, offset, method, defaultHeight }) {
               width: `${image.width}px`
             }}>
             <Image
-              method={index < 3 ? 'none' : method}
+              method={method}
               image={image}
               text={`It is a ${query}`}
               defaultHeight={defaultHeight}
