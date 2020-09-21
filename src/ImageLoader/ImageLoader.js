@@ -27,8 +27,7 @@ function ImageLoader({ query, num, offset, method, defaultHeight }) {
             className="image-loader__container"
             key={index}
             style={{
-              height: `${image.height}px`,
-              width: `${image.width}px`
+              width: '50%'
             }}>
             <Image
               method={method}
