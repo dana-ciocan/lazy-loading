@@ -14,7 +14,6 @@ function ImageLoader({ query, num, offset, method, defaultHeight }) {
             const { url, height, width } = imageData.images.original;
             return { url, height, width };
           });
-          console.log('imageData: ', imageData);
           setImagesToDisplay(imageData);
         });
       }
