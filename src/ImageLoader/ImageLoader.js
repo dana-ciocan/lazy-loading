@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Image from './Image/Image';
+import Image from '../Image/Image';
 import './ImageLoader.css';
 
 function ImageLoader({ query, num, offset, method, defaultHeight }) {

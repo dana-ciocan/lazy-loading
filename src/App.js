@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import ImageLoader from './ImageLoader';
+import ImageLoader from './ImageLoader/ImageLoader';
 
 function App() {
   const [topic, setTopic] = useState('');
