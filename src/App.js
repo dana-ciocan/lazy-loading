@@ -7,7 +7,7 @@ function App() {
   const [method, setMethod] = useState('none');
   const [showImages, setShowImages] = useState(false);
   const handleSubmit = () => {
-    if (method === 'javascript') {
+    if (method === 'events') {
       setTimeout(function() {
         var lazyloadImages = document.querySelectorAll("img.lazy");    
         console.log('lazyloadImages: ', lazyloadImages);
@@ -60,7 +60,7 @@ function App() {
         <select onChange={e => { setMethod(e.target.value); setShowImages(false); }}>
           <option value="none">No lazy loading</option> 
           <option value="native">Native lazy-loading</option> 
-          <option value="javascript">JavaScript lazy-loading</option> 
+          <option value="events">Event driven</option> 
         </select>
         <button onClick={handleSubmit}>OK</button>
         </div>

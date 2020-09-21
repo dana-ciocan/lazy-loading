@@ -16,7 +16,7 @@ function Image({ image: { url, height, width }, text, method, defaultHeight }) {
         curImage.current.loading = 'lazy';
         curImage.current.src = url;
         break;
-      case 'javascript':
+      case 'events':
         curImage.current['data-src'] = url;
         curImage.current.className = 'lazy';
         break;
