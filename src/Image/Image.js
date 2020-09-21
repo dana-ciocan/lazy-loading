@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import './Image.css';
 
 function Image({ image: { url, height, width }, text, method, defaultHeight }) {
   const curImage = useRef(null);
