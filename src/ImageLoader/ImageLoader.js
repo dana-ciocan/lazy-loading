@@ -53,7 +53,6 @@ function ImageLoader({ query, num, offset, method, defaultHeight }) {
   }, [imagesLoaded, method])
   const incrementImagesLoaded = () => {
     setImagesLoaded(imagesLoaded + 1);
-    console.log(imagesLoaded);
   }
   return (
     <div className="image-loader">
