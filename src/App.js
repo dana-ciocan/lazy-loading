@@ -24,6 +24,7 @@ function App() {
           <option value="none">No lazy loading</option> 
           <option value="native">Native lazy-loading</option> 
           <option value="events">Event driven</option> 
+          <option value="api">Observer API</option> 
         </select>
         <button onClick={() => setShowImages(true)}>OK</button>
         </div>
