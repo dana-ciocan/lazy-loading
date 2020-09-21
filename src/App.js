@@ -10,7 +10,6 @@ function App() {
     if (method === 'events') {
       setTimeout(function() {
         var lazyloadImages = document.querySelectorAll("img.lazy");    
-        console.log('lazyloadImages: ', lazyloadImages);
         var lazyloadThrottleTimeout;
         
         function lazyload () {
@@ -21,9 +20,7 @@ function App() {
           lazyloadThrottleTimeout = setTimeout(function() {
               var scrollTop = window.pageYOffset;
               lazyloadImages.forEach(function(img) {
-                console.log('image: ', img);
                 if(img.offsetTop < (window.innerHeight + scrollTop)) {
-                  console.log('removing lazy class for ', img);
                     img.src = img.dataset.src;
                     img.classList.remove('lazy');
                   }
