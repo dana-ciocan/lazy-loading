@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './Image.css';
 
-function Image({ image: { url, height, width }, text, method, incrementImagesLoaded }) {
+const Image = ({ image: { url, height, width }, text, method }) => {
   const curImage = useRef(null);
   const calcProps = () => {
     curImage.current.alt = text;
@@ -37,6 +37,6 @@ function Image({ image: { url, height, width }, text, method, incrementImagesLoa
       onError={calcProps}
     />
   );
-}
+};
 
 export default Image;
