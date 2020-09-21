@@ -5,8 +5,6 @@ function Image({ image: { url, height, width }, text, method, defaultHeight }) {
   const curImage = useRef(null);
   const calcProps = () => {
     curImage.current.alt = text;
-    curImage.current.height = height || defaultHeight || 400;
-    curImage.current.width = width;
 
     const scrollTop = window.pageYOffset;
     const imageInViewport = curImage.current.offsetTop < (window.innerHeight + scrollTop)
@@ -29,6 +27,8 @@ function Image({ image: { url, height, width }, text, method, defaultHeight }) {
 
   return (
     <img
+      width={width}
+      height={height}
       src="placeholder.gif"
       ref={curImage}
       alt=""
