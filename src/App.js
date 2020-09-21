@@ -19,24 +19,23 @@ function App() {
           />
         </div>
         <div className="form-row">
-        <label htmlFor="topic">Method</label>
-        <select onChange={e => { setMethod(e.target.value); setShowImages(false); }}>
-          <option value="none">No lazy loading</option> 
-          <option value="native">Native lazy-loading</option> 
-          <option value="events">Event driven</option> 
-          <option value="api">Observer API</option> 
-        </select>
-        <button onClick={() => setShowImages(true)}>OK</button>
+          <label htmlFor="topic">Method</label>
+          <select onChange={e => { setMethod(e.target.value); setShowImages(false); }}>
+            <option value="none">No lazy loading</option> 
+            <option value="native">Native lazy-loading</option> 
+            <option value="events">Event driven</option> 
+            <option value="api">Observer API</option> 
+          </select>
+          <button onClick={() => setShowImages(true)}>OK</button>
         </div>
       </div>
       {
         showImages ? 
           <ImageLoader
-          method={method}
-          query={topic}
-          num={50}
-          offset={Math.floor(Math.random() * 100)}
-          defaultHeight={400}
+            method={method}
+            query={topic}
+            num={50}
+            offset={Math.floor(Math.random() * 100)}
           /> 
         : null
       }
