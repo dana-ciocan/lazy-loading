@@ -16,9 +16,6 @@ function Image({ image: { url, height, width }, text, method, incrementImagesLoa
         curImage.current.src = url;
         break;
       case 'events':
-        curImage.current.dataset.src = url;
-        curImage.current.className = 'lazy';
-        break;
       case 'api':
         curImage.current.dataset.src = url;
         curImage.current.className = 'lazy';
