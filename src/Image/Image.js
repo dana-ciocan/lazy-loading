@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import './Image.css';
+import placeholder from './placeholder.gif'
 
-function Image({ image: { url, height, width }, text, method, defaultHeight }) {
+const Image = ({ image: { url, height, width }, text, method, showImage }) => {
   const curImage = useRef(null);
-  const calcProps = () => {
+  useEffect(() => {
     curImage.current.alt = text;
-    curImage.current.height = height || defaultHeight || 400;
-    curImage.current.width = width;
 
     const scrollTop = window.pageYOffset;
     const imageInViewport = curImage.current.offsetTop < (window.innerHeight + scrollTop)
@@ -16,24 +16,27 @@ function Image({ image: { url, height, width }, text, method, defaultHeight }) {
         curImage.current.loading = 'lazy';
         curImage.current.src = url;
         break;
-      case 'javascript':
-        curImage.current['data-src'] = url;
+      case 'events':
+      case 'api':
+        curImage.current.dataset.src = url;
         curImage.current.className = 'lazy';
         break;
       default:
         curImage.current.src = url;
         break;
     }
-  }
+  }, [method, text, url]);
 
   return (
     <img
-      src="placeholder.gif"
+      width={width}
+      height={height}
+      src={placeholder}
       ref={curImage}
       alt=""
-      onError={calcProps}
+      className={showImage ? 'image__visible' : 'image__invisible'}
     />
   );
-}
+};
 
 export default Image;
