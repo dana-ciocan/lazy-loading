@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import './App.css';
-import ImageLoader from './ImageLoader/ImageLoader';
+import SearchForm from './components/SearchForm/SearchForm';
 
 function App() {
+  const methodLookup = {
+    none: 'No lazy loading',
+    native: 'Native lazy loading',
+    events: 'JavaScript events',
+    api: 'Intersection Observer API'
+  }
   const [topic, setTopic] = useState('');
   const [method, setMethod] = useState('none');
   const [showImages, setShowImages] = useState(false);
@@ -54,15 +60,12 @@ function App() {
     setShowImages(true);
   }
   return (
-    <div className="App">
-      <div className="topic-form">
-        <div className="form-row">
-          <label htmlFor="topic">Topic</label>
-          <input
-            type="text"
-            id="topic"
-            value={topic}
-            onChange={e => { setTopic(e.target.value); setShowImages(false); }}
+      <SearchForm
+        topic={topic}
+        setTopic={setTopic}
+        setMethod={setMethod}
+        setShowImages={setShowImages}
+        methodLookup={methodLookup}
           />
         </div>
         <div className="form-row">
