@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import SearchForm from './components/SearchForm/SearchForm';
+import PlainImageContainer from './ImageContainers/Plain';
+import NativeImageContainer from './ImageContainers/Native';
 
 function App() {
   const methodLookup = {
@@ -67,25 +69,9 @@ function App() {
         setShowImages={setShowImages}
         methodLookup={methodLookup}
           />
-        </div>
-        <div className="form-row">
-          <label htmlFor="topic">Method</label>
-          <select onChange={e => { setMethod(e.target.value); setShowImages(false); }}>
-            <option value="none">No lazy loading</option> 
-            <option value="native">Native lazy-loading</option> 
-            <option value="events">Event driven</option> 
-            <option value="api">Observer API</option> 
-          </select>
-          <button onClick={() => doSetup()}>OK</button>
-        </div>
-      </div>
-      {<ImageLoader
-        method={method}
-        query={topic}
-        num={50}
-        offset={Math.floor(Math.random() * 100)}
-        showImages={showImages}
-      />}
+      {showImages && <h2>GIPHYs for {topic} using '{methodLookup[method]}'</h2>}
+      {showImages && method === 'none' && <PlainImageContainer imagesToDisplay={imagesToDisplay} />}
+      {showImages && method === 'native' && <NativeImageContainer imagesToDisplay={imagesToDisplay} />}
     </div>
   );
 }

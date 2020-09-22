@@ -1,0 +1,21 @@
+.image-container {
+    width: 100%;
+}
+
+.image-container > div {
+    margin: 1em auto;
+}
+
+img.image__visible {
+    border: 2px solid black;
+    width: 100%;
+    height: auto;
+    background-color: grey;
+}
+
+img.image__invisible {
+    border: none;
+    width: 100%;
+    height: auto;
+    background-color: none;
+}
