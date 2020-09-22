@@ -49,7 +49,7 @@ function App() {
         setShowImages={setShowImages}
         methodLookup={methodLookup}
       />
-      {showImages && <h2>GIPHYs for {topic} using '{methodLookup[method]}'</h2>}
+      {showImages && <h2>GIPHYs for '{topic}' using '{methodLookup[method]}'</h2>}
       {showImages && method === 'none' && <PlainImageContainer imagesToDisplay={imagesToDisplay} />}
       {showImages && method === 'native' && <NativeImageContainer imagesToDisplay={imagesToDisplay} />}
       {showImages && method === 'api' && <IntersectionObserverAPIImageContainer imagesToDisplay={imagesToDisplay} />}
