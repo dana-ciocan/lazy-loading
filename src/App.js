@@ -62,6 +62,7 @@ function App() {
     setShowImages(true);
   }
   return (
+    <div className="app">
       <SearchForm
         topic={topic}
         setTopic={setTopic}
