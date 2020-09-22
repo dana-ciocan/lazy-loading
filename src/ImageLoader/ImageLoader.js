@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Image from '../Image/Image';
 import './ImageLoader.css';
 
-function ImageLoader({ query, num, offset, method, defaultHeight }) {
-  const [imagesToDisplay, setImagesToDisplay] = useState([]);
+  const initialImages = new Array(50).fill({ url: '', height: 100, width: 500});
+  const [imagesToDisplay, setImagesToDisplay] = useState(initialImages);
   const [imagesLoaded, setImagesLoaded] = useState(0);
   useEffect(() => {
     const fetchData = async () => {
