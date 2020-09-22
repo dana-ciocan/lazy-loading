@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Image.css';
 
 const Image = ({ image: { url, height, width }, text, method }) => {
   const curImage = useRef(null);
-  const calcProps = () => {
+  useEffect(() => {
     curImage.current.alt = text;
 
     const scrollTop = window.pageYOffset;
@@ -24,8 +24,7 @@ const Image = ({ image: { url, height, width }, text, method }) => {
         curImage.current.src = url;
         break;
     }
-    incrementImagesLoaded();
-  }
+  }, [method, text, url]);
 
   return (
     <img
@@ -34,7 +33,6 @@ const Image = ({ image: { url, height, width }, text, method }) => {
       src="placeholder.gif"
       ref={curImage}
       alt=""
-      onError={calcProps}
     />
   );
 };
