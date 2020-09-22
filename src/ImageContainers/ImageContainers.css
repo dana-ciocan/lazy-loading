@@ -1,3 +1,17 @@
+.image-container {
+    width: 100%;
+}
+
+.image-container > div {
+    margin: 1em auto;
+}
+
+.image-container__api > img {
+    display: block;
+    height: auto;
+    margin: 1em 0;
+}
+
 img.image__visible {
     border: 2px solid black;
     width: 100%;
