@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './Image.css';
 import placeholder from './placeholder.gif'
 
-const Image = ({ image: { url, height, width }, text, method }) => {
+const Image = ({ image: { url, height, width }, text, method, showImage }) => {
   const curImage = useRef(null);
   useEffect(() => {
     curImage.current.alt = text;
@@ -34,6 +34,7 @@ const Image = ({ image: { url, height, width }, text, method }) => {
       src={placeholder}
       ref={curImage}
       alt=""
+      className={showImage ? 'image__visible' : 'image__invisible'}
     />
   );
 };
