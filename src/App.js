@@ -4,6 +4,7 @@ import SearchForm from './components/SearchForm/SearchForm';
 import PlainImageContainer from './ImageContainers/Plain';
 import NativeImageContainer from './ImageContainers/Native';
 import IntersectionObserverAPIImageContainer from './ImageContainers/IntersectionObserverAPI';
+import EventDrivenImageContainer from './ImageContainers/EventDriven';
 
 function App() {
   const methodLookup = {
@@ -52,6 +53,7 @@ function App() {
       {showImages && <h2>GIPHYs for '{topic}' using '{methodLookup[method]}'</h2>}
       {showImages && method === 'none' && <PlainImageContainer imagesToDisplay={imagesToDisplay} />}
       {showImages && method === 'native' && <NativeImageContainer imagesToDisplay={imagesToDisplay} />}
+      {showImages && method === 'events' && <EventDrivenImageContainer imagesToDisplay={imagesToDisplay} />}
       {showImages && method === 'api' && <IntersectionObserverAPIImageContainer imagesToDisplay={imagesToDisplay} />}
     </div>
   );
