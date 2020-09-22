@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Image from '../Image/Image';
 import './ImageLoader.css';
 
+function ImageLoader({ query, num, offset, method, showImages }) {
   const initialImages = new Array(50).fill({ url: '', height: 100, width: 500});
   const [imagesToDisplay, setImagesToDisplay] = useState(initialImages);
   const [imagesLoaded, setImagesLoaded] = useState(0);
@@ -17,62 +18,17 @@ import './ImageLoader.css';
           });
           setImagesToDisplay(imageData);
         });
-      }
-      fetchData();
-  }, [query, num, offset]);
-  useEffect(() => {
-    if (imagesLoaded === num) {
-      const lazyloadImages = document.querySelectorAll("img.lazy");    
-      if(method === 'events') {
-        let lazyloadThrottleTimeout;
-        
-        const lazyload = () => {
-          if(lazyloadThrottleTimeout) {
-            clearTimeout(lazyloadThrottleTimeout);
-          }    
-          
-          lazyloadThrottleTimeout = setTimeout(function() {
-              const scrollTop = window.pageYOffset;
-              lazyloadImages.forEach((img) => {
-                if(img.offsetTop < (window.innerHeight + scrollTop)) {
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                  }
-              });
-              if(lazyloadImages.length === 0) { 
-                document.removeEventListener("scroll", lazyload);
-                window.removeEventListener("resize", lazyload);
-                window.removeEventListener("orientationChange", lazyload);
-              }
-          }, 20);
-        }
-        
-        document.addEventListener("scroll", lazyload);
-        window.addEventListener("resize", lazyload);
-        window.addEventListener("orientationChange", lazyload);
-      } else if (method === 'api') {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              const image = entry.target;
-              image.src = image.dataset.src;
-              image.classList.remove("lazy");
-              imageObserver.unobserve(image);
-            }
-          });
-        });
-
-        lazyloadImages.forEach((image) => {
-          imageObserver.observe(image);
-        });
-      }
     }
-  }, [imagesLoaded, method])
+    if (showImages) {
+        fetchData();
+    }
+  }, [query, num, offset, showImages]);
   const incrementImagesLoaded = () => {
     setImagesLoaded(imagesLoaded + 1);
   }
   return (
     <div className="image-loader">
+      { showImages && <h2>GIPHYs for: {query}</h2> }
       {
         imagesToDisplay.map((image, index) => {
           return <div
@@ -84,8 +40,9 @@ import './ImageLoader.css';
             <Image
               method={method}
               image={image}
-              text={`It is a ${query}`}
+              text={query && showImages ? `It is a ${query}`: ''}
               incrementImagesLoaded={incrementImagesLoaded}
+              showImage={showImages}
             />
           </div>;
         })
