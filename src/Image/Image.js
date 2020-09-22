@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './Image.css';
+import placeholder from './placeholder.gif'
 
 const Image = ({ image: { url, height, width }, text, method }) => {
   const curImage = useRef(null);
@@ -30,7 +31,7 @@ const Image = ({ image: { url, height, width }, text, method }) => {
     <img
       width={width}
       height={height}
-      src="placeholder.gif"
+      src={placeholder}
       ref={curImage}
       alt=""
     />
