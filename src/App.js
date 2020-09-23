@@ -34,7 +34,7 @@ function App() {
               height,
               width,
               altText: `This is a GIPHY for ${topic}`,
-              className: 'image__visible'
+              className: 'jank-border'
             };
           });
           setImagesToDisplay(imageData);

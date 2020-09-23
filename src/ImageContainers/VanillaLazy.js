@@ -14,7 +14,7 @@ function VanillaLazyloadingImageContainer({ imagesToDisplay }) {
         {imagesToDisplay && imagesToDisplay.map((image) => {
             return <img 
                 alt={image.altText}
-                className="lazy"
+                className={`${image.className} lazy`}
                 data-src={image.url}
                 width={image.width}
                 height={image.height}
