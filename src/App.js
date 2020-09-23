@@ -5,6 +5,7 @@ import PlainImageContainer from './ImageContainers/Plain';
 import NativeImageContainer from './ImageContainers/Native';
 import IntersectionObserverAPIImageContainer from './ImageContainers/IntersectionObserverAPI';
 import EventDrivenImageContainer from './ImageContainers/EventDriven';
+import VanillaLazyloadingImageContainer from './ImageContainers/VanillaLazy';
 
 function App() {
   const methodLookup = {
@@ -12,7 +13,8 @@ function App() {
     native: 'Native lazy loading',
     events: 'JavaScript events',
     api: 'Intersection Observer API',
-    hybrid: 'Hybrid Native/API'
+    vanilla: 'Library: Vanilla Lazyloading',
+    hybrid: 'Hybrid: Native/API'
   }
   const [topic, setTopic] = useState('');
   const [method, setMethod] = useState('none');
@@ -42,7 +44,7 @@ function App() {
       fetchData();
     }
   }, [topic, showImages]);
-  const nativeLoadingAvailable = 'loading' in HTMLImageElement.prototype;
+  const ImageContainer = 'loading' in HTMLImageElement.prototype ? <NativeImageContainer imagesToDisplay={imagesToDisplay} /> : <IntersectionObserverAPIImageContainer imagesToDisplay={imagesToDisplay} />;
   return (
     <div className="app">
       <SearchForm
@@ -57,7 +59,8 @@ function App() {
       {showImages && method === 'native' && <NativeImageContainer imagesToDisplay={imagesToDisplay} />}
       {showImages && method === 'events' && <EventDrivenImageContainer imagesToDisplay={imagesToDisplay} />}
       {showImages && method === 'api' && <IntersectionObserverAPIImageContainer imagesToDisplay={imagesToDisplay} />}
-      {showImages && method === 'hybrid' && nativeLoadingAvailable ? <NativeImageContainer imagesToDisplay={imagesToDisplay} /> : <IntersectionObserverAPIImageContainer imagesToDisplay={imagesToDisplay} />}
+      {showImages && method === 'vanilla' && <VanillaLazyloadingImageContainer imagesToDisplay={imagesToDisplay} />}
+      {showImages && method === 'hybrid' && ImageContainer }
     </div>
   );
 }
