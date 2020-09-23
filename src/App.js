@@ -6,6 +6,7 @@ import NativeImageContainer from './ImageContainers/Native';
 import IntersectionObserverAPIImageContainer from './ImageContainers/IntersectionObserverAPI';
 import EventDrivenImageContainer from './ImageContainers/EventDriven';
 import VanillaLazyloadingImageContainer from './ImageContainers/VanillaLazy';
+import LazySizesContainer from './ImageContainers/LazySizes';
 
 function App() {
   const methodLookup = {
@@ -13,7 +14,8 @@ function App() {
     native: 'Native lazy loading',
     events: 'JavaScript events',
     api: 'Intersection Observer API',
-    vanilla: 'Library: Vanilla Lazyloading',
+    vanilla: 'Library: vanilla-lazyload',
+    lazysizes: 'Library: lazysizes',
     hybrid: 'Hybrid: Native/API'
   }
   const [topic, setTopic] = useState('');
@@ -60,6 +62,7 @@ function App() {
       {showImages && method === 'events' && <EventDrivenImageContainer imagesToDisplay={imagesToDisplay} />}
       {showImages && method === 'api' && <IntersectionObserverAPIImageContainer imagesToDisplay={imagesToDisplay} />}
       {showImages && method === 'vanilla' && <VanillaLazyloadingImageContainer imagesToDisplay={imagesToDisplay} />}
+      {showImages && method === 'lazysizes' && <LazySizesContainer imagesToDisplay={imagesToDisplay} />}
       {showImages && method === 'hybrid' && ImageContainer }
     </div>
   );
