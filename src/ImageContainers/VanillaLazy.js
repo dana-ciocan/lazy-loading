@@ -6,8 +6,7 @@ function VanillaLazyloadingImageContainer({ imagesToDisplay }) {
   return (
     <div className="image-container">
         <div
-            className="image-container__native"
-            style={{ width: '50%' }}>
+            className="image-container__native">
             {imagesToDisplay && imagesToDisplay.map((image) => {
                 return <LazyImage
                     alt={image.altText}

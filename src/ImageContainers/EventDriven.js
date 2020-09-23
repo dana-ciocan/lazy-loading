@@ -39,11 +39,9 @@ function EventDrivenImageContainer({ imagesToDisplay }) {
     <div className="image-container">
         <div
             ref={eventContainer}
-            className="image-container__events"
-            style={{ width: '50%' }}>
+            className="image-container__events">
             {imagesToDisplay && imagesToDisplay.map((image, index) => {
                 return <img
-                    style={{ height: `${image.height}px`}}
                     height={image.height}
                     width={image.width}
                     alt={image.altText}

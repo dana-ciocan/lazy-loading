@@ -2,12 +2,10 @@ import React from 'react';
 import './ImageContainers.css';
 
 function PlainImageContainer({ imagesToDisplay }) {
-    console.log('Rendering PlainImageContaner');
     return (
         <div className="image-container">
             <div
-                className="image-container__plain"
-                style={{ width: '50%' }}>
+                className="image-container__plain">
                 {imagesToDisplay && imagesToDisplay.map(image => {
                     return <img
                         height={image.height}

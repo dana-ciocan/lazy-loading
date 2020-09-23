@@ -4,9 +4,7 @@ import './ImageContainers.css';
 function NativeImageContainer({ imagesToDisplay }) {
   return (
     <div className="image-container">
-        <div
-            className="image-container__native"
-            style={{ width: '50%' }}>
+        <div className="image-container__native">
             {imagesToDisplay && imagesToDisplay.map(image => {
                 return <img
                     height={image.height}

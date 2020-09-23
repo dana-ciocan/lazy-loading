@@ -28,8 +28,7 @@ function IntersectionObserverAPIImageContainer({ imagesToDisplay }) {
     <div className="image-container">
         <div
             ref={apiContainer}
-            className="image-container__api"
-            style={{ width: '50%' }}>
+            className="image-container__api">
             {imagesToDisplay && imagesToDisplay.map((image, index) => {
                 return <img
                     style={{ height: `${image.height}px`}}
