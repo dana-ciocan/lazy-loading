@@ -36,23 +36,20 @@ function EventDrivenImageContainer({ imagesToDisplay }) {
     }
   });
   return (
-    <div className="image-container">
-        <div
-            ref={eventContainer}
-            className="image-container__events">
-            {imagesToDisplay && imagesToDisplay.map((image, index) => {
-                return <img
-                    height={image.height}
-                    width={image.width}
-                    alt={image.altText}
-                    src={index < 3 ? image.url : placeholder}
-                    data-src={image.url}
-                    className={`${image.className} lazy-events`}
-                    key={image.url}
-                />;
-            })}
-        </div>
-    </div>
+      <div ref={eventContainer}
+        className="image-container">
+          {imagesToDisplay && imagesToDisplay.map((image, index) => {
+              return <img
+                  height={image.height}
+                  width={image.width}
+                  alt={image.altText}
+                  src={index < 3 ? image.url : placeholder}
+                  data-src={image.url}
+                  className={`${image.className} lazy-events`}
+                  key={image.url}
+              />;
+          })}
+      </div>
   );
 }
 

@@ -25,22 +25,20 @@ function IntersectionObserverAPIImageContainer({ imagesToDisplay }) {
     }
   });
   return (
-    <div className="image-container">
-        <div
-            ref={apiContainer}
-            className="image-container__api">
-            {imagesToDisplay && imagesToDisplay.map((image, index) => {
-                return <img
-                    style={{ height: `${image.height}px`}}
-                    height={image.height}
-                    width={image.width}
-                    alt={image.altText}
-                    data-src={image.url}
-                    className={`${image.className} lazy-api`}
-                    key={image.url}
-                />;
-            })}
-        </div>
+      <div
+        ref={apiContainer}
+        className="image-container">
+        {imagesToDisplay && imagesToDisplay.map((image, index) => {
+            return <img
+                style={{ height: `${image.height}px`}}
+                height={image.height}
+                width={image.width}
+                alt={image.altText}
+                data-src={image.url}
+                className={`${image.className} lazy-api`}
+                key={image.url}
+            />;
+        })}
     </div>
 );
 }
