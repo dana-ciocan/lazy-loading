@@ -37,7 +37,6 @@ function IntersectionObserverAPIImageContainer({ imagesToDisplay }) {
                     height={image.height}
                     width={image.width}
                     alt={image.altText}
-                    src={index < 3 ? image.url : placeholder}
                     data-src={image.url}
                     className={`${image.className} lazy-api`}
                     key={image.url}
