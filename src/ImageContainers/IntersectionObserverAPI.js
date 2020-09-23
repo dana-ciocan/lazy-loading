@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import './ImageContainers.css';
-import placeholder from './placeholder.gif';
 
 function IntersectionObserverAPIImageContainer({ imagesToDisplay }) {
   const apiContainer = useRef(null);
